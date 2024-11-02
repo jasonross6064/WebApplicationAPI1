@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace DataModel1;
 
-public partial class MycitiesContext : DbContext
+public partial class MycitiesContext : IdentityDbContext <AppUser>
 {
     public MycitiesContext()
     {
@@ -34,6 +35,7 @@ public partial class MycitiesContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<City>(entity =>
         {
             entity.Property(e => e.Id).ValueGeneratedNever();

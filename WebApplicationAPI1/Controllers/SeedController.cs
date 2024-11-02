@@ -99,5 +99,12 @@ namespace WebApplicationAPI1.Controllers
             }
             return new JsonResult(cityCount);
         }
+
+        [HttpPost("Users")]
+        public async Task<IActionResult> ImportUsersAsync()
+        {
+
+            
+        }
     }
 }
